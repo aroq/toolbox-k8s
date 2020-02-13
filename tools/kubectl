@@ -8,6 +8,8 @@ parameters:
     default: default
 
 tasks:
+  core:
+    import: toolbox/.toolbox/deps/toolbox/variant-lib/utils.yaml
   apply:
     tasks:
       dir:
