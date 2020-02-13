@@ -6,6 +6,8 @@ bindParamsFromEnv: true
 parameters:
   - name: TOOLBOX_K8S_NAMESPACE
     default: default
+  - name: KUBECONFIG
+    default: ""
 
 tasks:
   core:
