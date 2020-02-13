@@ -1,10 +1,3 @@
-Version 0.1.2:
- - Remove GOOGLE_APPLICATION_CREDENTIALS param
-
-Version 0.1.1:
- - Fix exec task call
-
 Version 0.1.0
- - Add variant-lib
  - Initial commit
 
