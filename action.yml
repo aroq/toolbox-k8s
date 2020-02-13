@@ -1,0 +1,5 @@
+name: 'Toolbox k8s'
+description: 'Action to execute k8s workflows'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

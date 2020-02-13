@@ -1,0 +1,22 @@
+#!/usr/bin/env variant
+# vi: ft=yaml
+
+# bindParamsFromEnv: true
+# autoenv: true
+
+tasks:
+  k8s:
+    tasks:
+      apply:
+        tasks:
+          dir:
+            parameters:
+              - name: dir
+                default: kubernetes
+            steps:
+              - task: core.exec
+                arguments:
+                  title: Apply k8s manifests from {{ .dir }} recursively
+                  cmd: |
+                    echo "TOOLBOX_K8S_NAMESPACE: {{ .TOOLBOX_K8S_NAMESPACE }}"
+                    kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R
