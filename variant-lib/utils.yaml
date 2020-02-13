@@ -14,7 +14,7 @@ tasks:
         steps:
           - task: core.exec
             arguments:
-              title: Apply k8s manifests from {{ .dir }} recursively
+              title: Apply k8s manifests from {{ .dir }} directory recursively
               cmd: |
                 echo "TOOLBOX_K8S_NAMESPACE: {{ .TOOLBOX_K8S_NAMESPACE }}"
                 kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R
