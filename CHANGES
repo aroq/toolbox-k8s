@@ -1,3 +1,6 @@
+Version 0.1.7:
+ - Add KUBECONFIG env var
+
 Version 0.1.6:
  - Add core import
  - Update tool_dir config
