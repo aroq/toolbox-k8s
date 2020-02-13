@@ -1,5 +1,5 @@
 tools:
-  k8s/apply:
+  kubectl:
     from: config.tools
     image: aroq/toolbox-cloud:0.1.4
-    cmd: k8s/apply
+    cmd: kubectl
