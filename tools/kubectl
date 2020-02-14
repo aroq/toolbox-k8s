@@ -2,40 +2,27 @@
 # vi: ft=yaml
 
 bindParamsFromEnv: true
-autoenv: true
 
 parameters:
   - name: TOOLBOX_K8S_NAMESPACE
     default: default
-  - name: CLOUDSDK_CORE_PROJECT
-  - name: CLOUDSDK_COMPUTE_ZONE
-  - name: CLOUDSDK_CONTAINER_CLUSTER
-  - name: TOOLBOX_GCP_KEY_FILE
+  - name: KUBECONFIG
 
 tasks:
   core:
-    import: toolbox/.toolbox/deps/toolbox/variant-lib/utils.yaml
-  cloud:
-    tasks:
-      gcp:
-        tasks:
-          gcloud:
-            import: toolbox/.toolbox/deps/toolbox-gcp/variant-lib/utils.gcloud.yaml
-
-  prepare:
-    steps:
-      - task: cloud.gcp.gcloud.init
+    import: /toolbox/variant-lib/utils.yaml
 
   apply:
     tasks:
       dir:
+        autoenv: true
         parameters:
           - name: dir
             default: kubernetes
         steps:
-          - task: prepare
           - task: core.exec
             arguments:
               title: Apply k8s manifests from {{ .dir }} directory recursively
               cmd: |
                 kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R
+
