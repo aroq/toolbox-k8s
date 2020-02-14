@@ -1,5 +1,8 @@
-FROM aroq/toolbox-cloud:0.1.4
+FROM aroq/toolbox-cloud:0.1.5
 
-COPY entrypoint.sh /entrypoint.sh
+RUN mkdir -p /toolbox-k8s
+ADD tools /toolbox-k8s/tools
+ADD variant-lib /toolbox-k8s/variant-lib
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/toolbox-k8s/tools/kubectl"]
+
