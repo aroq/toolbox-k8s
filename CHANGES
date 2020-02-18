@@ -1,3 +1,6 @@
+Version 0.1.10:
+ - Set default value for KUBECONFIG
+
 Version 0.1.9:
  - Update kubectl command
  - Update Dockerfile COPY
