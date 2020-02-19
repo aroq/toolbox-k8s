@@ -5,7 +5,7 @@ bindParamsFromEnv: true
 
 parameters:
   - name: TOOLBOX_K8S_NAMESPACE
-    defaulI: default
+    default: default
   - name: KUBECONFIG
     default: .secrets/kubeconfig
 
