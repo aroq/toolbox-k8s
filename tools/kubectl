@@ -27,3 +27,11 @@ tasks:
               cmd: |
                 kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R
 
+  k9s:
+    steps:
+      - task: core.exec
+        arguments:
+          title: Execute k9s
+          cmd: |
+            k9s
+
