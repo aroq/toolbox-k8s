@@ -1,7 +1,12 @@
+config:
+  tools:
+    k8s:
+      params:
+        image: aroq/toolbox-k8s
+        tool_dirs:
+          - toolbox/.toolbox/deps/toolbox-k8s
+
 tools:
-  kubectl:
-    from: config.tools
-    image: aroq/toolbox-cloud:0.1.4
-    cmd: kubectl
-    tool_dirs:
-      - toolbox/.toolbox/deps/toolbox-k8s
+  k8s:
+    from: config.tools.k8s
+    cmd: k8s
