@@ -5,7 +5,7 @@ bindParamsFromEnv: true
 
 parameters:
   - name: TOOLBOX_K8S_NAMESPACE
-    default: default
+    defaulI: default
   - name: KUBECONFIG
     default: .secrets/kubeconfig
 
@@ -28,6 +28,7 @@ tasks:
                 kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R
 
   k9s:
+    autoenv: true
     steps:
       - task: core.exec
         arguments:
