@@ -35,5 +35,22 @@ tasks:
         arguments:
           title: Execute k9s
           cmd: |
-            echo "KUBECONFIG: ${KUBECONFIG}"
             k9s
+
+  kube-prompt:
+    autoenv: true
+    steps:
+      - task: core.exec
+        arguments:
+          title: Execute kube-prompt
+          cmd: |
+            kube-prompt
+
+  shell:
+    autoenv: true
+    steps:
+      - task: core.exec
+        arguments:
+          title: Execute bash
+          cmd: |
+            bash
