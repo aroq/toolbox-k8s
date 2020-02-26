@@ -28,7 +28,6 @@ tasks:
                 arguments:
                   title: Apply k8s manifests from {{ .dir }} directory recursively
                   cmd: |
-                    set -x
                     kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R {{ .TOOLBOX_K8S_KUBECTL_ARGS }}
 
   k9s:
