@@ -8,6 +8,8 @@ parameters:
     default: default
   - name: KUBECONFIG
     default: .secrets/kubeconfig
+  - name: TOOLBOX_K8S_KUBECTL_ARGS
+    default: ""
 
 tasks:
   core:
@@ -26,7 +28,7 @@ tasks:
                 arguments:
                   title: Apply k8s manifests from {{ .dir }} directory recursively
                   cmd: |
-                    kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R
+                    kubectl apply -n {{ .TOOLBOX_K8S_NAMESPACE }} -f {{ .dir }} -R {{ .TOOLBOX_K8S_KUBECTL_ARGS }}
 
   k9s:
     autoenv: true
