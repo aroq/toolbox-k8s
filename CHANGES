@@ -1,3 +1,16 @@
+Version 0.1.11:
+ - Add TOOLBOX_K8S_KUBECTL_ARGS
+ - Add TOOLBOX_K8S_KUBECTL_ARGS
+ - Add kube-prompt & shell tasks
+ - Update config
+ - Add debug cmd
+ - Fix mistype
+ - Fix entrypoint
+ - Add tools back
+ - Rename kubectl cmd to k8s
+ - Update k9s cmd
+ - Add k9s task
+
 Version 0.1.10:
  - Set default value for KUBECONFIG
 
