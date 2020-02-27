@@ -17,6 +17,9 @@ RUN git clone --depth 1 --single-branch -b $KUBE_PROMPT_VERSION https://github.c
 # Main stage
 FROM aroq/toolbox
 
+COPY Dockerfile.packages.txt /etc/apk/packages.txt
+RUN apk add --no-cache --update $(grep -v '^#' /etc/apk/packages.txt)
+
 COPY --from=builder /usr/bin/kube-prompt /usr/bin
 
 # Install kubectl
