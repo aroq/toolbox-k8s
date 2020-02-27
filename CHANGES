@@ -1,3 +1,11 @@
+Version 0.2.0:
+ - Update config
+ - Fix k9s release path
+ - Fix k9s release path
+ - Add packages
+ - Add dockerfile builder packages file
+ - Change parent docker image
+
 Version 0.1.12:
  - Remove -x before kubect apply dir call
 
