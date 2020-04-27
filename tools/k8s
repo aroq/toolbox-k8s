@@ -13,7 +13,7 @@ parameters:
 
 tasks:
   core:
-    import: /toolbox/variant-lib/utils.yaml
+    import: /toolbox/toolbox-variant/variant-lib/utils.yaml
   kubectl:
     tasks:
       apply:
