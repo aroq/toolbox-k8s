@@ -1,3 +1,6 @@
+Version 0.2.2:
+ - Remove entrypoint
+
 Version 0.2.1:
  - Update parent image version
 
