@@ -75,11 +75,9 @@ RUN curl -o stern -L https://github.com/wercker/stern/releases/download/${STERN_
     chmod a+x stern && \
     mv stern /usr/local/bin
 
-RUN mkdir -p /toolbox-k8s
+RUN mkdir -p /toolbox/toolbox-k8s
 COPY tools /toolbox/toolbox-k8s/tools
 
 ENV TOOLBOX_TOOL_DIRS toolbox,/toolbox/toolbox-k8s
 ENV VARIANT_CONFIG_CONTEXT toolbox
 ENV VARIANT_CONFIG_DIR toolbox
-
-ENTRYPOINT ["/toolbox-k8s/tools/k8s"]
