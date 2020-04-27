@@ -2,6 +2,6 @@ tools:
   k8s:
     from: config.tools.k8s
     cmd: k8s
-    image: aroq/toolbox-k8s:0.2.0
+    image: aroq/toolbox-k8s:0.2.1
     tool_dirs:
       - /toolbox-k8s

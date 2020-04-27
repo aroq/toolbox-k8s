@@ -15,7 +15,7 @@ RUN git clone --depth 1 --single-branch -b $KUBE_PROMPT_VERSION https://github.c
   cp kube-prompt /usr/bin
 
 # Main stage
-FROM aroq/toolbox
+FROM aroq/toolbox-variant:0.1.51
 
 COPY Dockerfile.packages.txt /etc/apk/packages.txt
 RUN apk add --no-cache --update $(grep -v '^#' /etc/apk/packages.txt)
@@ -23,7 +23,7 @@ RUN apk add --no-cache --update $(grep -v '^#' /etc/apk/packages.txt)
 COPY --from=builder /usr/bin/kube-prompt /usr/bin
 
 # Install kubectl
-ARG KUBECTL_VERSION=v1.16.2
+ARG KUBECTL_VERSION=v1.18.0
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl && \
     chmod +x ./kubectl && \
     mv ./kubectl /usr/local/bin/kubectl && \
@@ -62,7 +62,7 @@ RUN curl -L https://github.com/ahmetb/kubectx/archive/v$KUBECTX_VERSION.tar.gz |
     rm -fr ./kubectx-$KUBECTX_VERSION
 
 # Install k9s
-ARG K9S_VERSION=0.17.0
+ARG K9S_VERSION=0.19.3
 RUN mkdir -p k9s && \
     curl -L https://github.com/derailed/k9s/releases/download/v${K9S_VERSION}/k9s_Linux_x86_64.tar.gz | \
     tar xz -C k9s && \
@@ -76,6 +76,10 @@ RUN curl -o stern -L https://github.com/wercker/stern/releases/download/${STERN_
     mv stern /usr/local/bin
 
 RUN mkdir -p /toolbox-k8s
-ADD tools /toolbox-k8s/tools
+COPY tools /toolbox/toolbox-k8s/tools
+
+ENV TOOLBOX_TOOL_DIRS toolbox,/toolbox/toolbox-k8s
+ENV VARIANT_CONFIG_CONTEXT toolbox
+ENV VARIANT_CONFIG_DIR toolbox
 
 ENTRYPOINT ["/toolbox-k8s/tools/k8s"]
