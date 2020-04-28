@@ -1,6 +1,12 @@
 tools:
   k8s:
     from: config.toolbox-variant
-    image: aroq/toolbox-k8s:0.2.4
+    image: aroq/toolbox-k8s:0.2.5
     tool_dirs:
       - /toolbox/toolbox-k8s
+
+  kubectl:
+    from: config.toolbox-docker
+    image: bitnami/kubectl
+    env:
+      KUBECONFIG: .secrets/kubeconfig
